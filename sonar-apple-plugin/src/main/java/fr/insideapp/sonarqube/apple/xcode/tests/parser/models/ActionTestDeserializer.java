@@ -41,7 +41,7 @@ public class ActionTestDeserializer extends JsonDeserializer<ActionTest> {
         ObjectCodec codec = jsonParser.getCodec();
         JsonNode tree = codec.readTree(jsonParser);
         // get the nested values
-        JsonNode values = tree.get("_values");
+        JsonNode values = tree.path("_values");
         Iterator<JsonNode> iterator = values.iterator();
         // we keep two separate lists
         ArrayList<ActionTestSummaryGroup> groups = new ArrayList<>();

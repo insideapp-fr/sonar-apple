@@ -68,6 +68,13 @@ public final class MobSFScanRunnerTest {
         });
     }
 
+    @Test
+    public void exitCodes_acceptFindings() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method exitCodes = clazz.getDeclaredMethod("exitCodes");
+        exitCodes.setAccessible(true);
+        assertThat(exitCodes.invoke(runner)).isEqualTo(new Integer[]{0, 1});
+    }
+
     // Private
 
     private void mockSources(List<String> values) {
